@@ -26,7 +26,6 @@ resource "aws_ecs_service" "backend_service" {
   task_definition = aws_ecs_task_definition.backend_task.arn
   desired_count   = 1
   launch_type     = "FARGATE"
-  enable_execute_command = true
 
   # Network Configuration
   network_configuration {
@@ -99,10 +98,4 @@ resource "aws_security_group" "ecs_service" {
   tags = {
     Name = "ecs-service-sg"
   }
-}
-
-
-resource "aws_iam_role_policy_attachment" "ecs_task_exec_command_policy" {
-  role       = aws_iam_role.ecs_task_execution.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }

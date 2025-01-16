@@ -1,5 +1,7 @@
 import axios from "axios";
 
+// Could utilize api.kjohnson.io for backend but blocked by NBA API.
+// Alternatives = use a proxy so requests come from proxy instead of cloud provider. 
 const BASE_URL = "http://127.0.0.1:5000";
 
 export const getPlayerStats = async (playerName) => {
